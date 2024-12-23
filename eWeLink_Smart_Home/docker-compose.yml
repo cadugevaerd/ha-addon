@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  ewelink_smart_home:
+    build: .
+    container_name: ewelink_smart_home
+    restart: unless-stopped
+    network_mode: "host"  # Substitui --network host
+    environment:
+      - HA_URL=${HA_URL}
+      - SUPERVISOR_TOKEN=${SUPERVISOR_TOKEN}
+    volumes:
+      - /mnt/emmc/ewelink_smart_home/data:/data
